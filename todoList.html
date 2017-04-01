@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TODO list</title>
+ <style>
+     *{
+         margin: 0;
+         padding: 0;
+     }
+     html{
+         width: 100%;
+     }
+
+     .wrap{
+         width: 25%;
+         min-width: 15em;
+         position: absolute;
+         left: 50%;
+         top: 10%;
+         transform: translateX(-50%);
+     }
+     input{
+         height: 2em;
+         width:100%;
+         line-height: 2em ;
+     }
+     ul {
+         padding-top: 1em;
+         list-style: none;
+         border: 1px solid #cccccc;
+         box-shadow: 5px 5px 5px #cccccc;
+     }
+     ul li{
+         line-height: 2em;
+         margin-left: 1em;
+     }
+    .del{
+        color: red;
+        display: none;
+        margin-right: 2em;
+        float: right;
+        cursor: default;
+    }
+     li:hover .del{
+         display: inline-block;
+     }
+     .hidden{
+         display: none;
+     }
+     h2{
+         text-align: center;
+         margin-bottom: 1em;
+     }
+ </style>
+</head>
+<body>
+<div class="wrap">
+    <h2>TODO LIST</h2>
+<input type="text" id="todos">
+<ul id="lists">
+    <li>星期一<span class="del">X</span></li>
+    <li>星期一<span class="del">X</span></li>
+</ul>
+</div>
+<script>
+    var todos = document.getElementById('todos');
+    var list = document.getElementById('lists');
+    todos.addEventListener('keyup',function (e) {
+        if(e.keyCode == 13){
+            var text = e.target.value;
+            if(text){
+                var item = document.createElement('li');
+                item.innerHTML = text+'<span class="del">X</span>';
+                list.appendChild(item);
+                e.target.value = '';
+                var nodes = list.childNodes;
+                for(var i = 0; i < nodes.length; i++){
+                    if(nodes[i].nodeType === 1){
+                        nodes[i].classList.remove('hidden');
+                    }
+            }
+            }
+        }
+    });
+    todos.addEventListener('textInput', function (e) {
+        var text = e.target.value;
+        var nodes = list.childNodes;
+        for(var i = 0; i < nodes.length; i++ ){
+            if(nodes[i].nodeType === 1){
+                if(nodes[i].innerHTML.indexOf(text) == -1){
+                    nodes[i].classList.add('hidden');
+                }
+            }
+        }
+    });
+    list.addEventListener('click', function (e) {
+        if(e.target.nodeName == 'SPAN'){
+            list.removeChild(e.target.parentNode);
+        }
+    })
+</script>
+</body>
+</html>

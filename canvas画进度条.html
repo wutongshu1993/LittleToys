@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas画进度条</title>
+    <style>
+      /*  .text{
+          position: absolute;
+          top:150px;
+          left:150px;
+            !*-webkit-transform: translate(-26px, -17px);*!
+            transform: translate(-12px, -10px);
+      }
+      #figure, #per {
+            font-size: 30px;
+        }*/
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        body{
+            background-color: black;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div id="panel">
+    <canvas width="300" height="300" id="canvas"></canvas>
+   <!-- <div class="text">
+        <span id="figure"></span>
+        <span id="per">%</span>
+    </div>-->
+</div>
+<script>
+    window.onload = function () {
+        var canvas = document.getElementById('canvas'),
+                figure = document.getElementById('figure'),
+                context = canvas.getContext('2d'),
+                centerX = canvas.width / 2,//canvas的中心点X坐标
+                centerY = canvas.height / 2,
+                rad = 2 * Math.PI / 100,//将圆分为100份，那么每一次就是绘制rad度
+                speed = 0.1;//绘制速度
+        //画底圆
+        function drawCircle(ctx) {
+            ctx.save();
+            ctx.beginPath();
+            ctx.lineWidth = 3;
+            ctx.strokeStyle = '#fff';
+            ctx.arc(centerX, centerY, 100, 0, 2*Math.PI);
+            ctx.stroke();
+            ctx.restore();
+        }
+        //绘制百分比外圆
+        function drawPercentage(ctx, percentage) {
+//            ctx.clearRect(0,0, canvas.width, canvas.height);//清空画布
+//            drawCircle(ctx);
+
+            ctx.save();
+            ctx.beginPath();
+            ctx.lineWidth = 6;
+            ctx.strokeStyle = '#fff';
+            ctx.arc(centerX, centerY, 100, -Math.PI /2, -Math.PI/2 + percentage * rad);
+            ctx.stroke();
+            ctx.restore();
+        };
+        //绘制文字百分比
+        function drawText(ctx, n) {
+            ctx.save();
+            ctx.beginPath();
+            ctx.strokeStyle = '#fff';
+            ctx.font = '40px Arial';
+            ctx.strokeText(n.toFixed(0)+'%', centerX - 25, centerY+10);
+            ctx.stroke();
+            ctx.restore();
+        }
+
+        window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+        (function drawFrame() {
+           requestAnimationFrame(drawFrame);
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            drawCircle(context);
+            drawPercentage(context, speed);
+            drawText(context, speed);
+            if(speed > 100){
+                speed = 0;
+            }
+            speed += 0.2;
+        })();
+        /*function progress(ctx, i) {
+
+            setInterval(function () {
+                if(i >= 100){
+                    i = 0;
+                }else {
+                    i += 1;
+                }
+                drawPercentage(ctx, i / 100);
+                figure.innerHTML = Math.floor(i);
+            },50);
+        }
+        drawCircle(context);
+        progress(context, 0);*/
+    }
+
+</script>
+</body>
+
+</html>

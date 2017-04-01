@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canva抽奖</title>
+    <link href="canvas-lottery.css" rel="stylesheet">
+</head>
+<body>
+<div class="lottery">
+    <canvas width="300" height="300" id="myCanvas"></canvas><!--绘制可以转动的底盘-->
+    <canvas id="myCanvas1" width="200" height="200"></canvas>
+    <!--<canvas id="myCanvas2" width="200" height="200"></canvas>--><!--绘制里面的小圆，以及箭头-->
+    <canvas id="myCanvas3" width="150" height="150"></canvas><!--绘制中间的圆-->
+    <button id="lotBtn" class="lottery-btn"></button>
+</div>
+<div id="alertFram">
+<ul>
+    <li>[中奖提醒]</li>
+    <li id="msg"></li>
+    <li><button class="ok" id="okBtn">确定</button></li>
+</ul>
+</div>
+<script src="../jquery-3.1.0.js"></script>
+<script src="canvas-lottery.js"></script>
+</body>
+</html>

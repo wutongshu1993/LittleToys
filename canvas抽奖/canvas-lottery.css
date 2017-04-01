@@ -1,0 +1,99 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: "Microsoft YaHei";
+    font-size: 16px;
+}
+.lottery{
+    width: 300px;
+    height: 300px;
+    margin: 100px auto;
+    position: relative;
+}
+canvas{
+    position: absolute;
+}
+#myCanvas1, #myCanvas2{
+    left: 50px;
+    top: 50px;
+    z-index: 30;
+}
+#myCanvas3{
+    left: 75px;
+    top: 75px;
+    z-index: 20;
+}
+#myCanvas{
+    transition: transform 6s;
+    transform-origin: 50% 50%;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.lottery-btn{
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    left: 120px;
+    top: 120px;
+    cursor: pointer;
+    background-color: transparent;
+    z-index: 40;
+    border-radius: 50%;
+    border: none;
+    outline: none;/*点击按钮后，不会有边框显示出来*/
+}
+#alertFram{
+    width: 280px;
+    height: 150px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    display: none;
+}
+#alertFram ul{
+    list-style: none;
+    width: 100%;
+}
+
+#alertFram ul li:nth-child(1){
+    background-color: #626262;
+    text-align: left;
+    padding-left: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    border: 1px solid #F9cade;
+    height: 25px;
+}
+#alertFram ul li:nth-child(2){
+   height: 95px;
+    line-height: 95px;
+    font-size: 14px;
+    color: #dcc722;
+    text-align: center;
+    border-right: 1px solid #F9cade;
+    border-left: 1px solid #F9cade;
+    background-color: #787878;
+}
+#alertFram ul li:nth-child(3){
+    text-align: center;
+    border: 1px solid #F9cade;
+    height: 30px;
+    line-height: 25px;
+    background-color: #626262;
+}
+.ok{
+    width: 80px;
+    height: 20px;
+    background-color: #626262;
+    border: 1px solid white;
+    font-size: 14px;
+    line-height: 20px;
+    outline: none;
+    margin-top: 4px;
+    color: white;
+}
