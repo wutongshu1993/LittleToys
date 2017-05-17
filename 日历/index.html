@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>日历组件</title>
+    <link href="main.css" rel="stylesheet">
+</head>
+<body>
+<div class="calendar">
+    <div class="title">
+        <a href="" id="prev"><</a>
+        <a href="" id="next">></a>
+        <h1 class="green" id="calendar-title">Month</h1>
+        <h2 class="green small" id="calendar-year">year</h2>
+
+    </div>
+    <div class="body">
+        <div class="lightgrey body-list">
+            <ul class="day">
+                <li>MON</li>
+                <li>TUE</li>
+                <li>WED</li>
+                <li>THU</li>
+                <li>FRI</li>
+                <li>SAT</li>
+                <li>SUN</li>
+            </ul>
+        </div>
+      <div class="darkgrey body-list">
+          <ul id="days">
+
+          </ul>
+      </div>
+    </div>
+</div>
+<script src="../jquery-3.1.0.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

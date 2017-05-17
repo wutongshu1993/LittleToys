@@ -1,0 +1,81 @@
+html,body{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+h1, h2{
+    margin: 0;
+}
+a{
+    text-decoration: none;
+}
+.calendar{
+    width: 35%;
+    min-width: 200px;
+    margin: 20px auto;
+    position: relative;
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 5px #d9d9d9;
+}
+
+.calendar .title{
+    height: 70px;
+    border-bottom: 1px solid #CDCDCD;
+}
+.green{
+    color: #44b81b;
+}
+.title .small{
+    font-size: 18px;
+}
+#calendar-title, #calendar-year{
+    text-align: center;
+}
+#prev, #next{
+    line-height: 70px;
+    padding: 0 10px;
+    font-size: 24px;
+    color: gainsboro;
+}
+#prev{
+    float: left;
+}
+#next{
+    float: right;
+}
+.body{
+    padding: 10px;
+    overflow: hidden;
+}
+.body-list{
+    overflow: inherit;
+}
+.body-list ul {
+    list-style: none;
+    padding: 0;
+    position: relative;
+    overflow: inherit;
+    margin: 0;
+}
+.body-list ul li{
+    text-align: center;
+    /*display: inline-block;*/
+    float: left;
+    font-weight: 700;
+    font-size: 18px;
+    width: 14.28%;
+    /*border: 1px solid #ccc;*/
+    margin: 0;
+    box-sizing: border-box;
+    height: 36px;
+    line-height: 36px;
+}
+.lightgrey{
+    color: #ccc;
+}
+.darkgrey{
+    color: #606060;
+}
+.greenbox{
+    background-color: rgba(68,184, 27, 0.3);
+}
